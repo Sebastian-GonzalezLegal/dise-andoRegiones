@@ -6,15 +6,15 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class GrafoProvTest {
-	private GrafoProv grafo;
-	
+    private GrafoProv grafo;
+
     @Before
     public void setUp() {
-    	Vertice.resetUltIndiceAgregado();
+        Vertice.resetUltIndiceAgregado();
         grafo = new GrafoProv(5); // Inicializar un grafo nuevo antes de cada test
     }
-	
-	@Test
+
+    @Test
     public void testRegistrarProv() {
         grafo.registrarProv("A");
         grafo.registrarProv("B");
@@ -39,7 +39,7 @@ public class GrafoProvTest {
             // Excepción esperada
         }
     }
-    
+
     @Test
     public void testGetMatrizA() {
         boolean[][] matrizA = grafo.getMatrizA();
@@ -54,12 +54,11 @@ public class GrafoProvTest {
         assertEquals(0, aristas.size()); // Verifica que inicialmente no haya aristas
     }
 
-
     @Test
     public void testTamano() {
         assertEquals(5, grafo.tamano()); // Verifica el tamaño del grafo
     }
-    
+
     @Test
     public void testAgregarArista() {
         Vertice v1 = new Vertice("A");
@@ -71,9 +70,10 @@ public class GrafoProvTest {
         grafo.agregarArista(v1, v2, 4);
 
         assertTrue(grafo.getMatrizA()[v1.getIndice()][v2.getIndice()]); // Verifica que la arista esté presente
-        assertTrue(grafo.getMatrizA()[v2.getIndice()][v1.getIndice()]); // Verifica que la arista esté presente en ambas direcciones
+        assertTrue(grafo.getMatrizA()[v2.getIndice()][v1.getIndice()]); // Verifica que la arista esté presente en ambas
+                                                                        // direcciones
     }
-    
+
     @Test
     public void testEliminarArista() {
         Vertice v1 = new Vertice("A");
@@ -88,7 +88,6 @@ public class GrafoProvTest {
         grafo.eliminarArista(v1.getIndice(), v2.getIndice());
         assertFalse(grafo.getMatrizA()[v1.getIndice()][v2.getIndice()]); // Verifica que la arista haya sido eliminada
     }
-    
 
     @Test
     public void testEliminarAristasKMenos1() {
@@ -103,7 +102,7 @@ public class GrafoProvTest {
         assertEquals(3, aristas.size()); // Verifica que se hayan eliminado 2 aristas
         assertEquals(4, aristas.get(0).getPesoArista()); // Verifica que la arista restante sea la correcta
     }
-    
+
     @Test
     public void testEstaAislado() {
         grafo.registrarProv("A");
@@ -111,7 +110,7 @@ public class GrafoProvTest {
 
         Vertice v1 = grafo.hallarVPorNombre("A");
         Vertice v2 = grafo.hallarVPorNombre("B");
-        
+
         // Verificar que ambos vértices están inicialmente aislados
         assertTrue(grafo.estaAislado(v1));
         assertTrue(grafo.estaAislado(v2));
@@ -123,7 +122,7 @@ public class GrafoProvTest {
         assertFalse(grafo.estaAislado(v1));
         assertFalse(grafo.estaAislado(v2));
     }
-    
+
     @Test
     public void testGenerarAGM() {
         // Registrar los vértices
@@ -149,10 +148,7 @@ public class GrafoProvTest {
 
         // Verifica que el árbol tenga la cantidad correcta de aristas
         assertEquals(4, arbolGenerador.getListAristas().size());
-        
-        /*for (Arista arista : arbolGenerador.getListAristas()) {
-            assertFalse(arbolGenerador.formaCircuito(arista.getV1().getIndice(), arista.getV2().getIndice(), arbolGenerador.getMatrizA(), 5));
-        }*/
+
     }
 
 }
