@@ -250,7 +250,6 @@ public class Interfaz {
 				// Agregar la información al área de texto
 				txtAreaArbol.setText(sb.toString());
 
-				// Crear un JScrollPane y agregar el área de texto a él
 				JScrollPane scrollPane = new JScrollPane(txtAreaArbol);
 				scrollPane.setBounds(137, 70, 169, 100);
 				scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS); // Mostrar siempre la
@@ -297,7 +296,6 @@ public class Interfaz {
 				// Agregar la información al área de texto
 				txtAreaArbol.setText(sb.toString());
 
-				// Crear un JScrollPane y agregar el área de texto a él
 				JScrollPane scrollPane = new JScrollPane(txtAreaArbol);
 				scrollPane.setBounds(137, 70, 169, 100);
 				scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS); // Mostrar siempre la
@@ -389,7 +387,6 @@ public class Interfaz {
 				// Establecer el texto del JTextArea
 				txtAreaResultado.setText(sb.toString());
 
-				// Crear un JScrollPane y agregar el JTextArea a él
 				JScrollPane scrollPane = new JScrollPane(txtAreaResultado);
 				scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS); // Mostrar siempre la
 																								// barra vertical
